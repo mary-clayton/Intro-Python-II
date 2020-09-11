@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 import sys
 
 # Declare all the rooms
@@ -72,4 +73,20 @@ if len(move) == 1:
         print("The player quit the game!")
         sys.exit()
 
-    
+    elif move == "n":
+            if player.current_room.s_to:
+                player.current_room = player.current_room.s_to
+            else:
+                print("Unable to move in that direction!")
+                
+    elif move == "w":
+            if player.current_room.e_to:
+                player.current_room = player.current_room.e_to
+            else:
+                print("Unable to move in that direction!")
+
+    elif move == "e":
+            if player.current_room.w_to:
+                player.current_room = player.current_room.w_to
+            else:
+                print("Unable to move in that direction!")
